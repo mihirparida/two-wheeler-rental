@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RideEasy — Two Wheeler Rentals</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f5f7fb;color:#172033}
+  .hero{min-height:100vh;background:linear-gradient(135deg,#111827 0%,#243b53 55%,#0f766e 100%);display:flex;align-items:center;justify-content:center;padding:28px}
+  .card{width:min(1050px,100%);background:rgba(255,255,255,.96);border-radius:30px;overflow:hidden;box-shadow:0 25px 80px rgba(0,0,0,.28)}
+  .top{padding:48px 55px 35px;display:flex;justify-content:space-between;gap:30px;align-items:flex-start}
+  .badge{display:inline-block;background:#e6fffa;color:#0f766e;padding:8px 14px;border-radius:999px;font-size:13px;font-weight:800;letter-spacing:.4px;margin-bottom:15px}
+  h1{font-size:clamp(38px,6vw,66px);line-height:.98;letter-spacing:-2.5px;margin-bottom:16px}
+  .sub{font-size:17px;color:#667085;max-width:570px;line-height:1.6}
+  .call{background:#0f766e;color:white;text-decoration:none;padding:15px 20px;border-radius:15px;font-weight:800;white-space:nowrap;box-shadow:0 10px 25px rgba(15,118,110,.25)}
+  .call:hover{background:#0b625a}
+  .fleet{padding:0 55px 32px;display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+  .vehicle{background:#f7f9fc;border:1px solid #e7ebf1;border-radius:20px;padding:20px 14px;text-align:center}
+  .vehicle .icon{font-size:38px;margin-bottom:10px}
+  .vehicle b{display:block;font-size:15px}
+  .vehicle span{font-size:12px;color:#8a93a3}
+  .pricing{background:#f0fdfa;padding:34px 55px 45px}
+  .pricing h2{font-size:25px;margin-bottom:18px}
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .plan{background:white;border-radius:20px;padding:24px;border:1px solid #dceeea}
+  .plan.highlight{background:#0f766e;color:white;border-color:#0f766e;transform:translateY(-5px)}
+  .plan small{font-weight:800;text-transform:uppercase;letter-spacing:1px;opacity:.7}
+  .price{font-size:32px;font-weight:900;margin:8px 0}
+  .plan p{font-size:14px;line-height:1.5;opacity:.78}
+  .bottom{padding:25px 55px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+  .contact{font-size:15px;color:#667085}
+  .contact strong{color:#172033}
+  .cta{background:#172033;color:white;text-decoration:none;padding:14px 22px;border-radius:13px;font-weight:800}
+  @media(max-width:800px){
+    .top{padding:35px 25px 25px;flex-direction:column}
+    .fleet{padding:0 25px 28px;grid-template-columns:repeat(2,1fr)}
+    .pricing{padding:28px 25px 35px}
+    .plans{grid-template-columns:1fr}
+    .plan.highlight{transform:none}
+    .bottom{padding:22px 25px;flex-direction:column;align-items:stretch}
+    .cta{text-align:center}
+  }
+</style>
+</head>
+<body>
+<section class="hero">
+  <main class="card">
+    <div class="top">
+      <div>
+        <div class="badge">🏍️ EASY • AFFORDABLE • READY TO RIDE</div>
+        <h1>Rent. Ride.<br>Repeat.</h1>
+        <p class="sub">Your simple two-wheeler rental solution. Choose from our 3 bikes and 2 scooties and ride on your own schedule.</p>
+      </div>
+      <a class="call" href="tel:7077436426">📞 7077436426</a>
+    </div>
+
+    <div class="fleet">
+      <div class="vehicle"><div class="icon">🏍️</div><b>Bike 01</b><span>Available</span></div>
+      <div class="vehicle"><div class="icon">🏍️</div><b>Bike 02</b><span>Available</span></div>
+      <div class="vehicle"><div class="icon">🏍️</div><b>Bike 03</b><span>Available</span></div>
+      <div class="vehicle"><div class="icon">🛵</div><b>Scooty 01</b><span>Available</span></div>
+      <div class="vehicle"><div class="icon">🛵</div><b>Scooty 02</b><span>Available</span></div>
+    </div>
+
+    <div class="pricing">
+      <h2>Choose your rental plan</h2>
+      <div class="plans">
+        <div class="plan highlight">
+          <small>Hourly</small>
+          <div class="price">₹200</div>
+          <p>3 hours of riding. Perfect for quick trips and local travel.</p>
+        </div>
+        <div class="plan">
+          <small>KM Wise</small>
+          <div class="price">₹150</div>
+          <p>No timing required. Pay ₹150 for the KM-wise rental option.</p>
+        </div>
+        <div class="plan">
+          <small>Daily / Weekly</small>
+          <div class="price">₹1,000</div>
+          <p>Ideal for longer use. Daily / weekly rental basis at ₹1,000.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <div class="contact">For booking & enquiries: <strong>7077436426</strong></div>
+      <a class="cta" href="tel:7077436426">Call to Book →</a>
+    </div>
+  </main>
+</section>
+</body>
+</html>
