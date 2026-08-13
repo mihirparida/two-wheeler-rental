@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#111827">
   <title>RRR — Rent Ride Repeat</title>
 
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
       background: #f5f7fb;
       color: #172033;
     }
@@ -26,19 +27,18 @@
         #243b53 55%,
         #0f766e 100%
       );
-
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 15px;
+      padding: 28px;
     }
 
     .card {
-      width: min(1000px, 100%);
-      background: #ffffff;
-      border-radius: 26px;
+      width: min(1050px, 100%);
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 30px;
       overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.28);
     }
 
     /* =========================
@@ -46,69 +46,73 @@
     ========================== */
 
     .top {
-      padding: 28px 45px;
+      padding: 35px 55px 35px;
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      gap: 25px;
-    }
-
-    .top-content {
-      flex: 1;
+      gap: 30px;
+      align-items: flex-start;
     }
 
     .top-logo {
       flex: 0 0 auto;
+      margin-top: -8px;
     }
 
-    .logo {
-      width: 130px;
-      height: 130px;
+    .brand-logo {
+      width: 145px;
+      height: 145px;
       display: block;
+      filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.28));
     }
 
-    .ring {
+    .brand-logo .ring {
       fill: none;
       stroke: #f59e0b;
       stroke-width: 4;
     }
 
-    .dark {
+    .brand-logo .dark {
       fill: #172033;
     }
 
-    .gold {
+    .brand-logo .gold {
       fill: #f59e0b;
     }
 
-    .white {
-      fill: #ffffff;
+    .brand-logo .white {
+      fill: #fff;
+    }
+
+    .brand-logo text {
+      font-family: Arial, sans-serif;
+      font-weight: 900;
+      font-style: italic;
     }
 
     .badge {
       display: inline-block;
       background: #e6fffa;
       color: #0f766e;
-      padding: 7px 13px;
-      border-radius: 50px;
-      font-size: 12px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
       font-weight: 800;
-      margin-bottom: 12px;
+      letter-spacing: 0.4px;
+      margin-bottom: 15px;
     }
 
-    .top h1 {
-      font-size: clamp(40px, 6vw, 64px);
-      line-height: 0.95;
-      margin: 0 0 12px;
-      letter-spacing: -2px;
+    h1 {
+      font-size: clamp(38px, 6vw, 66px);
+      line-height: 0.98;
+      letter-spacing: -2.5px;
+      margin-bottom: 16px;
     }
 
     .sub {
-      font-size: 16px;
+      font-size: 17px;
       color: #667085;
-      line-height: 1.45;
-      max-width: 560px;
-      margin: 0;
+      max-width: 570px;
+      line-height: 1.6;
     }
 
     /* =========================
@@ -117,47 +121,44 @@
 
     .pricing {
       background: #f0fdfa;
-      padding: 28px 45px 25px;
+      padding: 34px 55px 30px;
     }
 
     .pricing h2 {
-      text-align: center;
-      margin: 0 0 16px;
       font-size: 25px;
+      margin-bottom: 18px;
     }
 
     .plans {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+      gap: 16px;
     }
 
     .plan {
-      background: #ffffff;
+      background: white;
+      border-radius: 20px;
+      padding: 24px;
       border: 1px solid #dceeea;
-      border-radius: 16px;
-      padding: 19px;
     }
 
     .plan small {
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.8px;
-      color: #667085;
+      letter-spacing: 1px;
+      opacity: 0.7;
     }
 
     .price {
-      font-size: 31px;
+      font-size: 32px;
       font-weight: 900;
-      margin: 6px 0;
-      color: #172033;
+      margin: 8px 0;
     }
 
     .plan p {
-      font-size: 13px;
-      line-height: 1.45;
-      color: #596273;
-      margin: 0;
+      font-size: 14px;
+      line-height: 1.5;
+      opacity: 0.78;
     }
 
     /* =========================
@@ -165,30 +166,33 @@
     ========================== */
 
     .notes {
-      margin-top: 14px;
-      background: #ffffff;
+      margin-top: 20px;
+      background: white;
       border: 1px solid #e5e7eb;
-      border-radius: 14px;
-      padding: 14px 17px;
-      font-size: 12.5px;
-      line-height: 1.45;
+      border-radius: 16px;
+      padding: 16px 19px;
       color: #596273;
+      font-size: 13px;
+      line-height: 1.65;
     }
 
     .notes-title {
       display: block;
-      font-weight: 800;
       color: #172033;
-      margin-bottom: 6px;
+      font-size: 14px;
+      margin-bottom: 8px;
     }
 
     .notes ul {
-      margin: 0;
       padding-left: 20px;
     }
 
     .notes li {
-      margin: 4px 0;
+      margin-bottom: 6px;
+    }
+
+    .notes li:last-child {
+      margin-bottom: 0;
     }
 
     .notes strong {
@@ -200,163 +204,155 @@
     ========================== */
 
     .bottom {
-      padding: 18px 45px;
+      padding: 25px 55px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 15px;
-      font-size: 14px;
+      gap: 20px;
+    }
+
+    .contact {
+      font-size: 15px;
       color: #667085;
     }
 
-    .bottom strong {
+    .contact strong {
       color: #172033;
-    }
-
-    .buttons {
-      display: flex;
-      gap: 10px;
     }
 
     .cta {
       background: #172033;
-      color: #ffffff;
+      color: white;
       text-decoration: none;
-      padding: 11px 18px;
-      border-radius: 10px;
+      padding: 14px 22px;
+      border-radius: 13px;
       font-weight: 800;
-      white-space: nowrap;
-    }
-
-    .whatsapp {
-      background: #16a34a;
     }
 
     /* =========================
        MOBILE
     ========================== */
 
-    @media (max-width: 700px) {
+    @media (max-width: 800px) {
 
       .hero {
-        padding: 6px;
-        min-height: 100vh;
+        padding: 8px;
       }
 
       .card {
-        border-radius: 20px;
+        border-radius: 22px;
       }
 
       .top {
-        padding: 12px 16px 14px;
+        padding: 20px 25px 25px;
         flex-direction: column;
+        align-items: center;
         text-align: center;
-        gap: 5px;
       }
 
       .top-logo {
         order: -1;
+        align-self: center;
+        margin: 0 0 12px;
       }
 
-      .logo {
-        width: 82px;
-        height: 82px;
+      .brand-logo {
+        width: 105px;
+        height: 105px;
       }
 
       .badge {
-        font-size: 9px;
-        padding: 5px 9px;
-        margin-bottom: 5px;
+        font-size: 11px;
+        padding: 7px 11px;
+        margin-bottom: 10px;
       }
 
-      .top h1 {
-        font-size: 36px;
-        margin-bottom: 6px;
+      h1 {
+        font-size: 42px;
+        letter-spacing: -1.8px;
+        margin-bottom: 10px;
       }
 
       .sub {
-        font-size: 12px;
-        line-height: 1.3;
-        max-width: 330px;
-        margin: auto;
+        font-size: 14px;
+        line-height: 1.45;
+        margin-left: auto;
+        margin-right: auto;
       }
 
       .pricing {
-        padding: 14px 12px;
+        padding: 24px 18px 22px;
       }
 
       .pricing h2 {
-        font-size: 19px;
-        margin-bottom: 9px;
+        font-size: 21px;
+        margin-bottom: 13px;
       }
 
       .plans {
         grid-template-columns: 1fr;
-        gap: 7px;
+        gap: 10px;
       }
 
       .plan {
-        padding: 10px 12px;
+        padding: 15px 16px;
 
         display: grid;
-        grid-template-columns: 100px 70px 1fr;
+        grid-template-columns: 100px 75px 1fr;
         align-items: center;
-        column-gap: 7px;
+        column-gap: 8px;
       }
 
       .plan small {
-        font-size: 9px;
+        font-size: 10px;
       }
 
       .price {
-        font-size: 22px;
+        font-size: 24px;
         margin: 0;
       }
 
       .plan p {
-        font-size: 10.5px;
-        margin: 0;
-        line-height: 1.25;
-      }
-
-      .notes {
-        margin-top: 8px;
-        padding: 9px 11px;
-        font-size: 9.5px;
+        font-size: 11px;
         line-height: 1.3;
       }
 
+      .notes {
+        margin-top: 12px;
+        padding: 11px 13px;
+        font-size: 10.5px;
+        line-height: 1.4;
+      }
+
       .notes-title {
-        margin-bottom: 3px;
+        font-size: 11px;
+        margin-bottom: 4px;
       }
 
       .notes ul {
-        margin: 0;
-        padding-left: 16px;
+        padding-left: 17px;
       }
 
       .notes li {
-        margin: 2px 0;
+        margin-bottom: 3px;
       }
 
       .bottom {
-        padding: 11px 12px;
+        padding: 16px 18px 20px;
         flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
         text-align: center;
-        gap: 7px;
-        font-size: 10.5px;
       }
 
-      .buttons {
-        width: 100%;
-        display: flex;
+      .contact {
+        font-size: 12px;
       }
 
       .cta {
-        flex: 1;
         text-align: center;
-        padding: 9px 10px;
-        font-size: 11px;
+        padding: 12px 18px;
+        font-size: 13px;
       }
     }
   </style>
@@ -368,10 +364,10 @@
 
     <main class="card">
 
-      <!-- TOP -->
+      <!-- TOP SECTION -->
       <div class="top">
 
-        <div class="top-content">
+        <div>
 
           <div class="badge">
             🏍️ EASY • AFFORDABLE • READY TO RIDE
@@ -383,29 +379,34 @@
           </h1>
 
           <p class="sub">
-            Simple and affordable two-wheeler rentals.
-            Choose from 3 bikes and 2 scooties and ride on your own schedule.
+            Your simple two-wheeler rental solution.
+            Choose from our 3 bikes and 2 scooties and ride
+            on your own schedule.
           </p>
 
         </div>
+
 
         <!-- RRR LOGO -->
         <div class="top-logo">
 
           <svg
-            class="logo"
+            class="brand-logo"
             viewBox="0 0 160 160"
             xmlns="http://www.w3.org/2000/svg"
             aria-label="RRR Rent Ride Repeat logo"
           >
 
             <defs>
+
               <path
-                id="arc"
-                d="M80 80m-58 0a58 58 0 1 1 116 0"
+                id="logoArc"
+                d="M 80,80 m -58,0 a 58,58 0 1,1 116,0"
                 fill="none"
               />
+
             </defs>
+
 
             <circle
               cx="80"
@@ -426,35 +427,69 @@
               cy="80"
               r="55"
               fill="#0b1220"
+              stroke="#f59e0b"
+              stroke-width="1.5"
+            />
+
+            <circle
+              cx="80"
+              cy="39"
+              r="18"
+              class="gold"
+              opacity=".95"
+            />
+
+            <path
+              d="M40 69h19l13-11 17 3 10 8h20l8 8-8 5H42z"
+              class="white"
+              opacity=".95"
+            />
+
+            <circle
+              cx="57"
+              cy="80"
+              r="9"
+              class="dark"
+            />
+
+            <circle
+              cx="106"
+              cy="80"
+              r="9"
+              class="dark"
+            />
+
+            <path
+              d="M31 71h20M28 78h20"
+              stroke="#f59e0b"
+              stroke-width="3"
+              stroke-linecap="round"
             />
 
             <text
               x="80"
-              y="105"
+              y="116"
               text-anchor="middle"
-              font-family="Arial"
-              font-size="42"
-              font-weight="900"
-              font-style="italic"
+              font-size="39"
               class="white"
             >
               R<tspan class="gold">R</tspan>R
             </text>
 
             <text
-              font-family="Arial"
-              font-size="9"
-              font-weight="700"
+              font-size="8.7"
               letter-spacing=".55"
               class="white"
             >
+
               <textPath
-                href="#arc"
+                href="#logoArc"
                 startOffset="50%"
                 text-anchor="middle"
               >
                 RENT • RIDE • REPEAT
               </textPath>
+
             </text>
 
           </svg>
@@ -468,7 +503,7 @@
       <div class="pricing">
 
         <h2>
-          Choose Your Rental Plan
+          Choose your rental plan
         </h2>
 
         <div class="plans">
@@ -486,7 +521,7 @@
 
             <p>
               <strong>No KM limit.</strong>
-              Take for 3 hours.
+              Take the vehicle for 3 hours and pay ₹200.
             </p>
 
           </div>
@@ -504,8 +539,10 @@
             </div>
 
             <p>
-              <strong>Less than 25 KM</strong>,
-              maximum 4 hours.
+              For trips of
+              <strong>less than 25 KM</strong>
+              with a maximum duration of
+              <strong>4 hours</strong>, pay ₹150.
             </p>
 
           </div>
@@ -523,8 +560,9 @@
             </div>
 
             <p>
-              <strong>Max 3 hours/day.</strong>
-              No KM limit.
+              Per day maximum
+              <strong>3 hours.</strong>
+              No KM limit required.
             </p>
 
           </div>
@@ -535,9 +573,9 @@
         <!-- IMPORTANT NOTES -->
         <div class="notes">
 
-          <span class="notes-title">
+          <strong class="notes-title">
             ⚠️ Important Notes
-          </span>
+          </strong>
 
           <ul>
 
@@ -548,12 +586,12 @@
 
             <li>
               <strong>Petrol Charges:</strong>
-              Customer pays for petrol.
+              Petrol cost is not included. Customer pays for petrol.
             </li>
 
             <li>
               <strong>Helmets:</strong>
-              1 helmet included; 2nd available on request.
+              1 helmet included. 2nd helmet available on request.
             </li>
 
           </ul>
@@ -566,29 +604,17 @@
       <!-- CONTACT -->
       <div class="bottom">
 
-        <div>
-          Booking & enquiries:
+        <div class="contact">
+          For booking & enquiries:
           <strong>7077436426</strong>
         </div>
 
-        <div class="buttons">
-
-          <a
-            class="cta whatsapp"
-            href="https://wa.me/917077436426"
-            target="_blank"
-          >
-            💬 WhatsApp
-          </a>
-
-          <a
-            class="cta"
-            href="tel:7077436426"
-          >
-            📞 Call
-          </a>
-
-        </div>
+        <a
+          class="cta"
+          href="tel:7077436426"
+        >
+          Call to Book →
+        </a>
 
       </div>
 
